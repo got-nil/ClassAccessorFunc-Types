@@ -42,9 +42,9 @@ ACCESSOR_METHODS = {
         "value"
     ],
     "get": [
-        "@param key string",
+        "@param fallback? any Optional fallback to return if value is nil.",
         "@return %TYPE%",
-        "key"
+        "fallback"
     ],
     "is": [
         None,
@@ -252,8 +252,6 @@ class AccessorFuncGenerator:
         if len(accessors) == 0:
             return {}
 
-        print(accessors)
-
         output = {}
         for classData in parser.findClasses():
 
@@ -312,7 +310,7 @@ class AccessorFuncGenerator:
 
 if __name__ == "__main__":
 
-    BASE_DIRECTORY = "D:\\GmodDevServer\\garrysmod\\addons\\gpt-npc\\lua\\gnil-modules\\gpt-npc"
+    BASE_DIRECTORY = "D:\\GmodDevServer\\garrysmod\\gamemodes\\gnil"
     WRITE_DIRECTORY = BASE_DIRECTORY + "\\.build\\accessor-docs"
 
     # Make sure the write directory exists.
